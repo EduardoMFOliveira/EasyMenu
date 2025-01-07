@@ -48,24 +48,66 @@ O **EasyMenu** é um sistema interativo de cardápio baseado em IoT, projetado p
 
 ---
 
-## 🌐 Acessando a Rede do EasyMenu
+---
 
-1. **Ligue o ESP32**  
-   Certifique-se de que o dispositivo está devidamente alimentado e funcionando.
+---
 
-2. **Conecte-se à Rede Wi-Fi**  
-   O ESP32 cria uma rede Wi-Fi para o projeto.  
+## 🌐 Acessando o Sistema EasyMenu
+
+O sistema EasyMenu possui duas áreas principais: **Área dos Clientes** e **Área do Dono**. Veja abaixo como acessá-las:
+
+---
+
+### 👤 Área dos Clientes
+
+1. **Conecte-se à Rede Wi-Fi Criada pelo ESP32**  
+   No dispositivo do cliente (como um smartphone ou tablet), procure a rede criada pelo ESP32:  
    - **Nome da Rede (SSID):** `EasyMenu-Network`  
    - **Senha:** `easymenu123`
 
-3. **Acesse o Painel Web**  
-   Após se conectar à rede, abra um navegador e digite o seguinte endereço na barra de URL:  
-   [http://192.168.4.1](http://192.168.4.1)  
+2. **Abra o Navegador**  
+   Digite o seguinte endereço na barra de URL:  
+   [http://192.168.4.1](http://192.168.4.1)
 
-4. **Navegue pelo Sistema**  
-   No painel web, você pode:
-   - Fazer pedidos interativos.
-   - Gerenciar configurações do sistema (se permitido pelo administrador).
+3. **Navegue pelo Cardápio**  
+   Use a interface para selecionar itens do cardápio e confirmar o pedido.  
+   - O pedido será enviado automaticamente para a **Área do Dono** para preparação.
+
+---
+
+### 🛠️ Área do Dono
+
+1. **Conecte o ESP32 à Rede Wi-Fi Local**  
+   Certifique-se de que o ESP32 está configurado para conectar-se à rede local (SSID e senha configurados no código antes de carregar no ESP32).  
+
+2. **Acesse o Painel Administrativo**  
+   No dispositivo do dono (como um computador ou smartphone conectado à mesma rede Wi-Fi local), abra um navegador web e digite o endereço IP do ESP32 na rede local.  
+
+   - O IP será exibido no console da Arduino IDE ao carregar o código no ESP32.  Você também pode saber o IP consultando o roteador em que o ESP32 está conectado
+     Exemplo: `http://192.168.1.100/admin`
+
+4. **Gerencie o Sistema**  
+   Na interface do dono, você pode:
+   - Visualizar pedidos recebidos dos clientes.
+   - Atualizar o cardápio e preços.
+   - Configurar opções do sistema (ex.: alterar senha ou SSID da rede).
+
+---
+
+### 🔑 Notas de Configuração
+
+- **Conexão do ESP32 à Rede Local:**  
+  Para configurar o ESP32 com a rede local, atualize o código com o SSID e a senha antes de carregar o programa no dispositivo:  
+  ```cpp
+  const char* ssid = "SuaRedeWiFi";
+  const char* password = "SenhaDaRede";
+
+
+---
+
+### Observações:
+- Certifique-se de que todos os dispositivos usados (clientes e dono) estão conectados à mesma rede criada pelo ESP32 para garantir o funcionamento adequado.
+- Caso o ESP32 esteja configurado para usar uma rede local existente, substitua o endereço IP padrão conforme indicado no código do projeto.
 
 ---
 
