@@ -48,10 +48,6 @@ O **EasyMenu** é um sistema interativo de cardápio baseado em IoT, projetado p
 
 ---
 
----
-
----
-
 ## 🌐 Acessando o Sistema EasyMenu
 
 O sistema EasyMenu possui duas áreas principais: **Área dos Clientes** e **Área do Dono**. Veja abaixo como acessá-las:
